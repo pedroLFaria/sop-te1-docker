@@ -122,3 +122,4 @@ dist
 src/firebase/firebase-service-account.ts
 src/firebase/firebase-service-account.json
 ban2api-image.tar
+src/resource/lorem_ipsun.json
