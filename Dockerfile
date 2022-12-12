@@ -6,9 +6,9 @@ RUN Invoke-WebRequest -OutFile nodejs.zip -UseBasicParsing "https://nodejs.org/d
 
 FROM mcr.microsoft.com/windows/nanoserver:ltsc2022 as builder
 
-WORKDIR C:\nodejs
-COPY --from=installer C:\nodejs\ .
-RUN SETX PATH C:\nodejs
+WORKDIR /nodejs
+COPY --from=installer /nodejs/ .
+RUN SETX PATH /nodejs
 RUN npm config set registry https://registry.npmjs.org/
 
 WORKDIR /app
@@ -19,9 +19,9 @@ RUN npm ci --quiet && npm run build
 
 FROM mcr.microsoft.com/windows/nanoserver:ltsc2022
 
-WORKDIR C:\nodejs
-COPY --from=installer C:\nodejs\ .
-RUN SETX PATH C:\nodejs
+WORKDIR /nodejs
+COPY --from=installer /nodejs/ .
+RUN SETX PATH /nodejs
 RUN npm config set registry https://registry.npmjs.org/
 
 WORKDIR /app
