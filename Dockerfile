@@ -1,11 +1,11 @@
-FROM node:18.12.1 AS builder
+FROM stefanscherer/node-windows:12.18.3 AS builder
 WORKDIR /app
 COPY package*.json ./
 COPY tsconfig*.json ./
 COPY ./src ./src
 RUN npm ci --quiet && npm run build
 
-FROM node:18.12.1-bullseye-slim
+FROM stefanscherer/node-windows:12.18.3-pure
 WORKDIR /app
 ENV NODE_ENV=production
 COPY package*.json ./
