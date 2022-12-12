@@ -13,5 +13,5 @@ $ npm install
 
 Você pode iniciar um **servidor local** executando o comendo abaixo no console
 ```console
-$ npm run dev
+$ npm run start:dev
 ```
