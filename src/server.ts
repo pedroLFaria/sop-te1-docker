@@ -26,7 +26,6 @@ class Server {
         return new Promise((resolve, reject) => {
             var server = this.app.listen(port, () => {
                 resolve(port);
-                server.close();
             }).on('error', (err: Object) => reject(err));
         });
 
